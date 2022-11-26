@@ -30,7 +30,7 @@
       }
     ],
     "comma-spacing": ["error", { "before": false, "after": true }],
-    "semi": ["error", "always"],
+    "semi": ["error", "never"],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-whitespace-before-property": "warn",
