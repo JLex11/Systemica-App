@@ -1,0 +1,199 @@
+.AlumnoCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: padding 0.3s ease-in-out;
+}
+
+.CardHeader {
+  padding: 15px;
+  border-radius: 60px;
+  box-shadow: 0 0 10px #00000017;
+  overflow: hidden;
+  background-color: rgb(245, 245, 245);
+  transition: padding .3s .2s ease-in-out, box-shadow .3s ease-in-out;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.CardHeader:hover {
+  box-shadow: 0 0 35px #0000001b;
+  z-index: 1;
+}
+
+.CardHeader > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.Foto img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.Edad {
+  position: absolute;
+  bottom: -5px;
+  background-color: #7243d2;
+  border: 2px solid rgb(245, 245, 245);
+  color: white;
+  padding: 0 5px;
+  border-radius: 25px;
+  font-size: 12px;
+}
+
+.InfoAlumno {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.Nombre {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.Curso {
+  font-size: 1.1rem;
+  color: #65676b;
+}
+
+.Alf_Information {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.TaskLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 7px;
+  width: fit-content;
+  border: none;
+  font-size: 11pt;
+  background: linear-gradient(to right, #7d55c700, #6f33df00);
+  transition: 
+    background .3s ease-in-out,
+    color .3s ease-in-out;
+}
+
+.TaskLabel:hover {
+  background: linear-gradient(to right, #7d55c7, #6f33df);
+  color: white;
+  border-radius: 10px;
+  cursor: default;
+}
+
+/* ---------------- body ---------------- */
+.CardBody {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  top: 15px;
+  width: 85%;
+  height: 90%;
+  border-radius: 40px;
+  background: linear-gradient(to right, #7d55c7, #6f33df);
+  color: transparent;
+  transition:
+    height .3s .1s ease-in-out,
+    width .3s .1s ease-in-out,
+    border-radius .3s .1s ease-in-out,
+    padding .3s .1s ease-in-out,
+    color .3s ease-in-out;
+}
+
+.CardBody_Visible {
+  z-index: 2;
+  width: 90%;
+  height: fit-content;
+  border-radius: 30px;
+  padding: 15px;
+  color: white;
+}
+
+.CardBody_Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+.TaskDate {
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: 15px;
+  text-transform: capitalize;
+}
+
+.TaskDate svg {
+  font-size: 1.4rem;
+}
+
+.CloseButton {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.CloseButton:hover {
+  background-color: white;
+  box-shadow: 0 0 5px #0000000f;
+  border-radius: 50%;
+}
+
+.CloseButton:hover svg path {
+  stroke: #763ed7;
+}
+
+.CloseButton svg path {
+  stroke: white;
+}
+
+.Tarea_Reciente {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+
+.Tarea_Content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Tarea_Titulo {
+  display: flex;
+  align-items: center;
+}
+
+.Tarea_Description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}

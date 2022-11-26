@@ -1,0 +1,34 @@
+.Proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ProyectsList {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  padding: 5px;
+}
+
+.ActionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AddTareaIcon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14pt;
+  border-radius: 7px;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.AddTareaIcon:hover {
+  background-color: #e6e6e6;
+}

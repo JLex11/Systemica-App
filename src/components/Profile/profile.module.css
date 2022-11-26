@@ -1,0 +1,54 @@
+.Profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 40px;
+  font-size: 14pt;
+  position: relative;
+}
+
+.Foto  img {
+  border-radius: 50%;
+}
+
+.Body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Usuario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.SettingsButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  font-size: 16pt;
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.SettingsButton:hover svg {
+  fill: black;
+  animation: shake 0.5s linear;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5px, 0); }
+  40% { transform: translate(5px, 0); }
+  60% { transform: translate(-5px, 0); }
+  80% { transform: translate(5px, 0); }
+  100% { transform: translate(0, 0); }
+}

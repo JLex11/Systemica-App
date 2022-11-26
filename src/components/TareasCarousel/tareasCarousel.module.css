@@ -1,0 +1,55 @@
+.CarouselContainer {
+  width: 100%;
+  position: relative;
+}
+
+.Carousel {
+  width: 100%;
+  height: 50px;
+  padding: 2px;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.CarouselItem {
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  position: relative;
+}
+
+.Arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  border: none;
+  background-color: transparent;
+  padding: 10px 13px;
+  border-radius: 7px;
+}
+
+.Arrow:hover {
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.07);
+}
+
+.ArrowLeft { left: 7px; }
+.ArrowRight { right: 7px; }
+.ArrowHide { display: none; }

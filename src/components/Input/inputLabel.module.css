@@ -1,0 +1,39 @@
+.ContainerInput {
+  position: relative;
+}
+
+.ContainerInput input {
+  border: none;
+  border-radius: 7px;
+  padding: 15px;
+  font-size: 1.2rem;
+  transition: box-shadow .3s ease;
+  width: 100%;
+}
+
+.ContainerInput input:is(:hover, :focus-visible) {
+  outline: 0;
+  box-shadow: 0 0 10px #00000023;
+}
+
+.InputLabel {
+  position: absolute;
+  z-index: 1;
+  color: rgb(169, 169, 169);
+  font-size: 1.2rem;
+  top: 0;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 
+    transform .3s ease, 
+    font-size .3s ease,
+    opacity .3s ease;
+}
+
+.ContainerInput input:is(:focus, :valid, :not(:placeholder-shown)) + .InputLabel {
+  transform: translate(-5px, -125%);
+  font-size: 0.8rem;
+  opacity: 0;
+}

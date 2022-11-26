@@ -1,0 +1,46 @@
+.LoginSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.LoginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.35);
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #7d55c7 0%, #c933ff 100%);
+  color: white;
+  gap: 15px;
+}
+
+.LoginHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.LoginTitle {
+  font-size: 2.2rem;
+}
+
+.Register {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Register a {
+  font-weight: 600;
+}
+
+.Register a:hover {
+  text-decoration: underline;
+}

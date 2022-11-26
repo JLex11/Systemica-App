@@ -1,0 +1,57 @@
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 20px;
+}
+
+.SubmitButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: border .3s ease;
+  overflow: hidden;
+  height: 50px;
+  width: 150px;
+}
+
+.SubmitButton span, .IconButton {
+  transition: transform .5s ease, font-size .5s ease;
+}
+
+.SubmitButton:hover span {
+  transform: translateX(200%);
+}
+
+.SubmitButton:hover .IconButton {
+  transform: translateX(105%);
+  font-size: 2.5rem;
+}
+
+.IconButton {
+  font-size: 1.8rem;
+}
+
+.LoginForm > select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f2f2f2;
+  font-size: 12pt;
+}
+
+.LoginForm > select:hover {
+  background-color: #e6e6e6;
+}
+
+.LoginForm > select:focus {
+  outline: none;
+}

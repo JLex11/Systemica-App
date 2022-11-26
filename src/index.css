@@ -1,0 +1,79 @@
+:root {
+  font-family: cursive, /* "Montserrat", */ Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input, button, select, textarea {
+  font-family: inherit;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.material-symbols-rounded { user-select: none;}
+
+.Content {
+  width: 100%;
+}
+
+section {
+  padding: 10px;
+}
+
+/* ----------------- DataTable ---------------- */
+.TUEFO, .cEMZEX { /*Title and filter bar*/
+  padding: 5px;
+}
+
+.gZWIKX {
+  background: linear-gradient(to top, #bc91cd, #c8aad5);
+  border-radius: 10px;
+  color: white;
+  font-size: 11pt;
+  margin: 5px;
+  margin-top: 0;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.181);
+}
+
+.gFYXSL {
+  gap: 10px;
+  padding: 10px;
+}
+
+.kgEPYv {
+  min-height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #00000029;
+  padding: 15px 0;
+}

@@ -1,0 +1,25 @@
+.App {
+  height: 100vh;
+}
+
+.Main {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 60px);
+  overflow-x: hidden;
+}
+
+.Content {
+  width: min(100%, 1300px);
+  height: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.TailSpinContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  justify-content: center;
+}

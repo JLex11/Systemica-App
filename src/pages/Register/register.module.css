@@ -1,0 +1,46 @@
+.RegisterSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.RegisterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.35);
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #7d55c7 0%, #c933ff 100%);
+  color: white;
+  gap: 15px;
+}
+
+.RegisterHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.RegisterTitle {
+  font-size: 2.2rem;
+}
+
+.Login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.Login a {
+  font-weight: 600;
+}
+
+.Login a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,63 @@
+.SearchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: min(350px, 100%);
+}
+
+.FilterInput {
+  padding: 10px 35px 10px 10px;
+  width: 100%;
+  border: 1px solid #8d8c8d34;
+  background-color: rgb(252, 252, 252);
+  font-size: 13pt;
+  border-radius: 10px;
+}
+
+.FilterInput:focus-visible {
+  outline: none;
+  border: 1px solid #ba91ca;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.177);
+}
+
+.LabelSearchBox {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  cursor: text;
+  color: #bfbfbf;
+  user-select: none;
+  transform: translateY(10px);
+  transform-origin: top left;
+  transition: 
+    transform 0.3s ease-in-out,
+    background-color 0.3s .2s ease-in-out,
+    color 0.3s ease-in;
+}
+
+.FilterInput:is(:focus-visible, :not(:placeholder-shown)) + .LabelSearchBox {
+  transform: translateY(-10px) scale(.8);
+  background-color: white;
+  color: #7640d8;
+}
+
+.InputIcon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: rgb(235, 235, 235);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: none;
+  border-radius: 7px;
+  transition: color 0.3s ease-in-out;
+}
+
+.FilterInput:is(:focus-visible, :not(:placeholder-shown)) + .LabelSearchBox + .InputIcon {
+  color: #ba91ca;
+}

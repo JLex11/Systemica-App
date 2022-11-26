@@ -1,0 +1,17 @@
+.AlumnosSection {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.CardList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(165px, 1fr));
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 10px;
+  width: 100%;
+}

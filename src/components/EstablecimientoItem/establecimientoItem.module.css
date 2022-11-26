@@ -1,0 +1,71 @@
+.EstablecimientoItem {
+  display: flex;
+  min-width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.152);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.NavigateToButton {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 2;
+}
+
+.NavigateToButton svg {
+  font-size: 18pt;
+  color: white;
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+.Content {
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.EstablecimientoImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.EstablecimientoImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: width .5s .1s ease-in-out, height .5s .1s ease-in-out;
+}
+
+.EstablecimientoItem:hover .EstablecimientoImage img {
+  width: 130%;
+  height: 130%;
+}
+
+.BodyCard {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: flex-end;
+  flex-direction: column;
+  z-index: 1;
+  font-size: 15pt;
+  gap: 10px;
+  color: white;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.696);
+  background: linear-gradient(to bottom, transparent, black);
+}
+
+.Tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

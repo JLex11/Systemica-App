@@ -1,0 +1,26 @@
+.State {
+  padding: 1px 6px;
+  font-size: 10pt;
+  border-radius: 15px;
+  white-space: nowrap;
+}
+
+.State_Progress {
+  color: rgb(34, 112, 255);
+  background-color: rgba(0, 0, 255, 0.078);
+}
+
+.State_Finalized {
+  color: rgb(0, 228, 11);
+  background-color: rgba(0, 255, 8, 0.078);
+}
+
+.State_Pending {
+  color:  rgb(228, 217, 0);
+  background-color: rgba(246, 255, 0, 0.078);
+}
+
+.State_Canceled {
+  color: rgb(228, 42, 0);
+  background-color: rgba(255, 47, 0, 0.078);
+}

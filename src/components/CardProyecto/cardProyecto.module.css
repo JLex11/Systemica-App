@@ -1,0 +1,96 @@
+.CardProyecto {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.095);
+}
+
+.CardState_Progress {
+  color: rgb(0, 11, 32);
+  background: linear-gradient(to right bottom, rgb(0 89 255 / 21%), rgba(1, 65, 184, 0.139));
+}
+
+.CardState_Finalized {
+  color: rgb(0 26 2);
+  background: linear-gradient(to right bottom, rgb(0 228 11 / 25%), rgb(0 161 8 / 18%));
+}
+
+.CardState_Pending {
+  color:  rgb(23, 22, 0);
+  background: linear-gradient(to right bottom, rgba(228, 217, 0, 0.066), rgba(235, 217, 0, 0.139));
+}
+
+.CardState_Canceled {
+  color: rgb(24, 4, 0);
+  background: linear-gradient(to right bottom, rgba(228, 42, 0, 0.066), rgba(230, 42, 0, 0.139));
+}
+
+.CardHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.ActionButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 7px;
+  background-color: transparent;
+  color: currentColor;
+  border-radius: 7px;
+  font-size: 11pt;
+  gap: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.ActionButton:hover {
+  background-color: #00000026;
+}
+
+.ActionButton svg {
+  font-size: 15pt;
+}
+
+.CardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.InfoAlumno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+  font-size: 14pt;
+}
+
+.AlfEstado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 15px;
+}
+
+.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}

@@ -1,0 +1,67 @@
+.NotificationsContainer {
+  position: fixed;
+  bottom: -10px;
+  left: -10px;
+  z-index: 1000;
+}
+
+.NotificationsList {
+  display: flex;
+  gap: 10px;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.Notification {
+  border-radius: 15px;
+  color: #fff;
+  box-shadow: 0 0 15px #0000002e;
+  animation: _int_out_t7s0n_1 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px;
+  width: fit-content;
+}
+
+.Closing {
+  animation: out_int 0.3s ease-in-out forwards;
+}
+
+@keyframes int_out {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes out_int {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+.Success { background-color: #4caf50; }
+
+.Error { background-color: #f44336; }
+
+.Info { background-color: #2196f3; }
+
+.Loading { background-color: #2196f3; }
+
+.icon {
+  font-size: 20pt;
+}

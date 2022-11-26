@@ -1,0 +1,93 @@
+.AgregarRolSection {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  
+}
+
+.AgregarRolForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.SubmitButton {
+  padding: 6px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 12pt;
+}
+
+.SubmitButton:hover {
+  background-color: #f2f2f2;
+}
+
+.InputsContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.InputsContainer select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f2f2f2;
+  font-size: 12pt;
+  width: 100%;
+}
+
+.InputsContainer > select:hover {
+  background-color: #e6e6e6;
+}
+
+.InputsContainer > select:focus {
+  outline: none;
+}
+
+.SelectWithButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.AddButton {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  font-size: 16pt;
+  border-radius: 10px;
+}
+
+.AddCursoButton:hover {
+  background-color: #f1f1f1;
+}
+
+.ContainerInputsCurso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+}
+
+.CursoInput {
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+}
+
+.CursoInput:is(:hover, :focus) {
+  outline: 1px solid rgb(238, 238, 238);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.064);
+}

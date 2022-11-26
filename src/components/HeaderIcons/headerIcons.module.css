@@ -1,0 +1,33 @@
+.UserIcon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: #8181810c;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.UserIcon .Icon {
+  font-size: 20pt;
+  color: #dbdbdb;
+}
+
+.UserIcon:hover {
+  box-shadow: 0 0 10px #8181812d;
+}
+
+.LogoutIcon {
+  font-size: 20pt;
+  color: #2e2e2e;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.LogoutIcon:hover {
+  color: black;
+  transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+}
