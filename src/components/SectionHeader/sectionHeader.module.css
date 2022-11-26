@@ -10,3 +10,9 @@
 .SectionTitle {
   font-size: 20pt;
 }
+
+@media screen and (max-width: 775px) {
+  .SectionHeader {
+    justify-content: center;
+  }
+}

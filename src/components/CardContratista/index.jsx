@@ -1,23 +1,23 @@
-import { memo, useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
-import CardBody from './CardBody';
-import styles from './cardContratista.module.css';
-import CardHeader from './CardHeader';
+import { memo, useCallback, useState } from 'react'
+import { useSelector } from 'react-redux'
+import CardBody from './CardBody'
+import styles from './cardContratista.module.css'
+import CardHeader from './CardHeader'
 
 const CardContratista = ({ contratista }) => {
-  const [visible, setVisible] = useState(false);
-  const handleVisible = useCallback(() => setVisible(!visible), [visible]);
+  const [visible, setVisible] = useState(false)
+  const handleVisible = useCallback(() => setVisible(!visible), [visible])
 
   const alfabetizacion = useSelector(({ alfabetizaciones }) =>
-    alfabetizaciones.find(({ id_contratista }) => id_contratista == contratista.id_contratista));
+    alfabetizaciones.find(({ id_contratista }) => id_contratista == contratista.id_contratista))
 
   const tarea = useSelector(({ tareas }) => alfabetizacion
     ? tareas.filter(({ id_alfabetizacion }) => id_alfabetizacion == alfabetizacion.id_alfabetizacion)[0]
     : null
-  );
+  )
 
   const establecimiento = useSelector(({ establecimientos }) =>
-    establecimientos.filter(({ id_establecimiento }) => id_establecimiento == contratista.id_establecimiento)[0]);
+    establecimientos.filter(({ id_establecimiento }) => id_establecimiento == contratista.id_establecimiento)[0])
   
   return (
     <article className={styles.ContratistaCard}>
@@ -37,7 +37,7 @@ const CardContratista = ({ contratista }) => {
         )
       }
     </article>
-  );
-};
+  )
+}
 
-export default memo(CardContratista);
+export default memo(CardContratista)

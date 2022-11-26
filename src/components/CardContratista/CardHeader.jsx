@@ -1,7 +1,7 @@
-import { memo } from 'react';
-import { BsChevronDown, BsListTask } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import styles from './cardContratista.module.css';
+import { memo } from 'react'
+import { BsChevronDown, BsListTask } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
+import styles from './cardContratista.module.css'
 
 const CardHeader = ({ contratista, tarea, establecimiento, handleVisible }) => {
   return (
@@ -34,7 +34,7 @@ const CardHeader = ({ contratista, tarea, establecimiento, handleVisible }) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default memo(CardHeader);
+export default memo(CardHeader)

@@ -1,19 +1,19 @@
-import { memo } from 'react';
-import { useField } from '../../hooks/useField';
-import styles from './setUsuario.module.css';
+import { memo } from 'react'
+import { useField } from '../../hooks/useField'
+import styles from './setUsuario.module.css'
 
 const SetUsuario = ({ usuario, /* action = 'update' */ }) => {
-  const edad = useField({ type: 'number', defaultValue: usuario?.edad });
-  const nombres = useField({ type: 'text', defaultValue: usuario?.nombres });
-  const apellidos = useField({ type: 'text', defaultValue: usuario?.apellidos });
-  const nro_documento = useField({ type: 'number', defaultValue: usuario?.nro_documento });
-  const telefono = useField({ type: 'tel', defaultValue: usuario?.telefono });
+  const edad = useField({ type: 'number', defaultValue: usuario?.edad })
+  const nombres = useField({ type: 'text', defaultValue: usuario?.nombres })
+  const apellidos = useField({ type: 'text', defaultValue: usuario?.apellidos })
+  const nro_documento = useField({ type: 'number', defaultValue: usuario?.nro_documento })
+  const telefono = useField({ type: 'tel', defaultValue: usuario?.telefono })
 
   return (
     <div className={styles.ContainerInputs}>
       <header className={styles.Header}>
-        <span>Nombres:</span>
         <div>
+          <span>Nombres:</span>
           <input
             name='nombres'
             id='nombres'
@@ -23,8 +23,8 @@ const SetUsuario = ({ usuario, /* action = 'update' */ }) => {
             value={nombres.value}
           />
         </div>
-        <span>Apellidos:</span>
         <div>
+          <span>Apellidos:</span>
           <input
             name='apellidos'
             id='apellidos'
@@ -34,8 +34,8 @@ const SetUsuario = ({ usuario, /* action = 'update' */ }) => {
             value={apellidos.value}
           />
         </div>
-        <span>Edad:</span>
         <div>
+          <span>Edad:</span>
           <input
             name='edad'
             id='edad'
@@ -45,8 +45,8 @@ const SetUsuario = ({ usuario, /* action = 'update' */ }) => {
             value={edad.value}
           />
         </div>
-        <span>Documento:</span>
         <div>
+          <span>Documento:</span>
           <input
             name='nro_documento'
             id='nro_documento'
@@ -56,8 +56,8 @@ const SetUsuario = ({ usuario, /* action = 'update' */ }) => {
             value={nro_documento.value}
           />
         </div>
-        <span>Telefono:</span>
         <div>
+          <span>Telefono:</span>
           <input
             name='telefono'
             id='telefono'
@@ -69,7 +69,7 @@ const SetUsuario = ({ usuario, /* action = 'update' */ }) => {
         </div>
       </header>
     </div>
-  );
-};
+  )
+}
 
-export default memo(SetUsuario);
+export default memo(SetUsuario)

@@ -1,49 +1,49 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { TailSpin } from 'react-loader-spinner';
-import { useSelector } from 'react-redux';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import styles from './App.module.css';
-import Aside from './components/Aside';
-import Header from './components/Header';
-import NotificationsList from './components/NotificationsList';
-import { useAlfabetizaciones } from './hooks/useAlfabetizaciones';
-import { useAlumnos } from './hooks/useAlumnos';
-import { useContratistas } from './hooks/useContratistas';
-import { useEstablecimientos } from './hooks/useEstablecimientos';
-import { useTareas } from './hooks/useTareas';
-import { useUsuarios } from './hooks/useUsuarios';
-const AgregarRol = lazy(()=> import('./pages/AgregarRol'));
-const Establecimientos = lazy(()=> import('./pages/Establecimientos'));
-const Reportes = lazy(()=> import('./pages/Reportes'));
-const Alumnos = lazy(()=> import('./pages/Alumnos'));
-const Contratistas = lazy(()=> import('./pages/Contratistas'));
-const Inicio = lazy(()=> import('./pages/Inicio'));
-const Login = lazy(()=> import('./pages/Login'));
-const Proyectos = lazy(()=> import('./pages/Proyectos'));
-const Register = lazy(()=> import('./pages/Register'));
-const Tareas = lazy(()=> import('./pages/Tareas'));
-const UsuarioProfile = lazy(()=> import('./pages/UsuarioProfile'));
+import { lazy, Suspense, useEffect } from 'react'
+import { TailSpin } from 'react-loader-spinner'
+import { useSelector } from 'react-redux'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import styles from './App.module.css'
+import Aside from './components/Aside'
+import Header from './components/Header'
+import NotificationsList from './components/NotificationsList'
+import { useAlfabetizaciones } from './hooks/useAlfabetizaciones'
+import { useAlumnos } from './hooks/useAlumnos'
+import { useContratistas } from './hooks/useContratistas'
+import { useEstablecimientos } from './hooks/useEstablecimientos'
+import { useTareas } from './hooks/useTareas'
+import { useUsuarios } from './hooks/useUsuarios'
+const AgregarRol = lazy(()=> import('./pages/AgregarRol'))
+const Establecimientos = lazy(()=> import('./pages/Establecimientos'))
+const Reportes = lazy(()=> import('./pages/Reportes'))
+const Alumnos = lazy(()=> import('./pages/Alumnos'))
+const Contratistas = lazy(()=> import('./pages/Contratistas'))
+const Inicio = lazy(()=> import('./pages/Inicio'))
+const Login = lazy(()=> import('./pages/Login'))
+const Proyectos = lazy(()=> import('./pages/Proyectos'))
+const Register = lazy(()=> import('./pages/Register'))
+const Tareas = lazy(()=> import('./pages/Tareas'))
+const UsuarioProfile = lazy(()=> import('./pages/UsuarioProfile'))
 
 function App() {
-  const token = useSelector(({ user }) => user?.results?.token);
+  const token = useSelector(({ user }) => user?.results?.token)
 
-  const { initAssociated: initAlumnos } = useAlumnos();
-  const { init: initContratistas } = useContratistas();
-  const { init: initEstablecimientos } = useEstablecimientos();
-  const { init: initAlfabetizaciones } = useAlfabetizaciones();
-  const { init: initTareas } = useTareas();
-  const { init: initUsuarios } = useUsuarios();
+  const { initAssociated: initAlumnos } = useAlumnos()
+  const { init: initContratistas } = useContratistas()
+  const { init: initEstablecimientos } = useEstablecimientos()
+  const { init: initAlfabetizaciones } = useAlfabetizaciones()
+  const { init: initTareas } = useTareas()
+  const { init: initUsuarios } = useUsuarios()
 
   useEffect(() => {
     if (token) {
-      initAlumnos([ 'cursos', 'usuarios.alumnos'], token);
-      initContratistas(token);
-      initEstablecimientos(token);
-      initAlfabetizaciones(token);
-      initTareas(token);
-      initUsuarios(token);
+      initAlumnos([ 'cursos', 'usuarios.alumnos'], token)
+      initContratistas(token)
+      initEstablecimientos(token)
+      initAlfabetizaciones(token)
+      initTareas(token)
+      initUsuarios(token)
     }
-  }, [token]);
+  }, [token])
 
   return (
     <div className={styles.App}>
@@ -56,10 +56,10 @@ function App() {
       </main>
       <NotificationsList />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 
 const PrivateRoutes = () => {
   return (
@@ -79,8 +79,8 @@ const PrivateRoutes = () => {
         <Route path={'*'} element={<Navigate to={'/inicio'} />} />
       </Routes>
     </Suspense>
-  );
-};
+  )
+}
 
 const PublicRoutes = () => (
   <Suspense fallback={<LoadingSpinner />}>
@@ -91,10 +91,10 @@ const PublicRoutes = () => (
       <Route path='*' element={<Navigate to='/login' />} />
     </Routes>
   </Suspense>
-);
+)
 
 const LoadingSpinner = () => (
   <div className={styles.TailSpinContainer}>
     <TailSpin width={100} color='#743ed6' className={styles.TailSpinLoading} />
   </div>
-);
+)

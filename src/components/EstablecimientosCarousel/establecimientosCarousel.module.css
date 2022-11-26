@@ -7,7 +7,7 @@
 .Carousel {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 20px 80px;
   display: flex;
   gap: 15px;
   overflow-x: auto;
@@ -50,3 +50,12 @@
 .ArrowLeft { left: 7px; }
 .ArrowRight { right: 7px; }
 .ArrowHide { display: none; }
+
+@media screen and (max-width: 775px) {
+  .Carousel {
+    flex-direction: column;
+    padding: 10px;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+  }
+}
