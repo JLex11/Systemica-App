@@ -1,18 +1,24 @@
-import { memo } from 'react';
-import { MdAdd } from 'react-icons/md';
-import InputLabel from '../../components/Input/InputLabel';
-import Select from '../../components/Select';
-import { useField } from '../../hooks/useField';
-import styles from './agregarRol.module.css';
+import { memo } from 'react'
+import { MdAdd } from 'react-icons/md'
+import InputLabel from '../../components/Input/InputLabel'
+import Select from '../../components/Select'
+import { useField } from '../../hooks/useField'
+import styles from './agregarRol.module.css'
 
 const Alumno = ({ cursos, tipos_documento, setAddingCurso }) => {
-  const nombres = useField({ type: 'text' });
-  const apellidos = useField({ type: 'text' });
-  const edad = useField({ type: 'number' });
-  const documento = useField({ type: 'number' });
-  const tipo_documento = useField({ type: 'number', defaultValue: tipos_documento[0]?.id_tipo_documento });
-  const telefono = useField({ type: 'number' });
-  const id_curso = useField({ type: 'number', defaultValue: cursos[0]?.id_curso });
+  const nombres = useField({ type: 'text' })
+  const apellidos = useField({ type: 'text' })
+  const edad = useField({ type: 'number' })
+  const documento = useField({ type: 'number' })
+  const tipo_documento = useField({ type: 'number', defaultValue: tipos_documento[0]?.id_tipo_documento })
+  const telefono = useField({ type: 'number' })
+  const id_curso = useField({ type: 'number', defaultValue: cursos[0]?.id_curso })
+
+  tipos_documento = tipos_documento.filter(({ tipo_abreviado }) => {
+    if (edad.value >= 18) return true
+    if (edad.value < 18 && tipo_abreviado == 'CC') return true
+    return false
+  })
 
   return (
     <div className={styles.InputsContainer}>
@@ -47,7 +53,7 @@ const Alumno = ({ cursos, tipos_documento, setAddingCurso }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default memo(Alumno);
+export default memo(Alumno)

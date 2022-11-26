@@ -1,9 +1,9 @@
-import { memo } from 'react';
-import { Link } from 'react-router-dom';
-import graduate_icon from '../../assets/icons/graduate_icon.png';
-import RegisterForm from '../../components/RegisterForm';
+import { memo } from 'react'
+import { Link } from 'react-router-dom'
+import graduate_icon from '../../assets/icons/graduate_icon.png'
+import RegisterForm from '../../components/RegisterForm'
 
-import styles from './register.module.css';
+import styles from './register.module.css'
 
 const Register = () => {
   return (
@@ -20,7 +20,7 @@ const Register = () => {
         </footer>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default memo(Register);
+export default memo(Register)
