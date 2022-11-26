@@ -1,23 +1,23 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 export const useField = ({ type, defaultValue = '', regExp }) => {
-  const [value, setValue] = useState(defaultValue);
-  const [error, setError] = useState(false);
-
-  /* const handleChange = (event) => {
-    setValue(event.target.value);
-    setError(!regExp?.test(event.target.value));
-  }; */
+  const [value, setValue] = useState(defaultValue)
+  const [error, setError] = useState(false)
 
   const onChange = (event) => {
-    setValue(event.target.value);
-    setError(!regExp?.test(event.target.value));
-  };
+    setValue(event.target.value)
+    setError(!regExp?.test(event.target.value))
+  }
+
+  const handleChange = (event) => {
+    setValue(event.target.value)
+    setError(!regExp?.test(event.target.value))
+  }
 
   const reset = () => {
-    setValue('');
-    setError(false);
-  };
+    setValue('')
+    setError(false)
+  }
 
   return {
     type,
@@ -25,6 +25,7 @@ export const useField = ({ type, defaultValue = '', regExp }) => {
     setValue,
     error,
     reset,
-    onChange
-  };
-};
+    onChange,
+    handleChange
+  }
+}
