@@ -23,3 +23,9 @@
   padding: 40px;
   justify-content: center;
 }
+
+@media screen and (max-width: 775px) {
+  .Main {
+    flex-direction: column;
+  }
+}

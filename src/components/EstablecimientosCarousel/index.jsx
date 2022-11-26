@@ -13,20 +13,13 @@ const EstablecimientosCarousel = ({ establecimientos }) => {
 
       let carouselItems = carousel.querySelectorAll(`.${styles.CarouselItem}`)
       let carouselItemsCount = carouselItems.length
-      let carouselItemsWidth, carouselWidth, carouselMaxScroll, carouselScrollStep
+      let carouselItemsWidth, carouselMaxScroll, carouselScrollStep
       let carouselScrollLeft = 0
 
       const calculateCarouselValues = () => {
         carouselItemsWidth = carouselItems[0].offsetWidth
-        carouselWidth = carouselItemsWidth * carouselItemsCount
-        carouselMaxScroll = carouselWidth - (carousel.offsetWidth - 80)
+        carouselMaxScroll = carouselItemsWidth * carouselItemsCount // carousel width
         carouselScrollStep = carouselItemsWidth * 1.1
-        console.log({
-          carouselItemsWidth,
-          carouselWidth,
-          carouselMaxScroll,
-          carouselScrollStep
-        })
       }
 
       calculateCarouselValues()
