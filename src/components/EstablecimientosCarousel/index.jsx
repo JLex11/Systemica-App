@@ -19,7 +19,7 @@ const EstablecimientosCarousel = ({ establecimientos }) => {
       const calculateCarouselValues = () => {
         carouselItemsWidth = carouselItems[0].offsetWidth
         carouselWidth = carouselItemsWidth * carouselItemsCount
-        carouselMaxScroll = carouselWidth - carousel.offsetWidth + 70
+        carouselMaxScroll = carouselWidth - (carousel.offsetWidth - 80)
         carouselScrollStep = carouselItemsWidth * 1.1
         console.log({
           carouselItemsWidth,
