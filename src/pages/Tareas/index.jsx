@@ -1,29 +1,34 @@
-import { memo, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import FilterInput from '../../components/FilterInput';
-import SectionHeader from '../../components/SectionHeader';
-import TareasList from '../../components/TareasList';
-import { useTareas } from '../../hooks/useTareas';
-import { filterItems } from '../../utils/filterItems';
-import ActionBar from './ActionBar';
-import styles from './tareas.module.css';
+import { memo, useCallback, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import FilterInput from '../../components/FilterInput'
+import SectionHeader from '../../components/SectionHeader'
+import TareasList from '../../components/TareasList'
+import { useTareas } from '../../hooks/useTareas'
+import { filterItems } from '../../utils/filterItems'
+import ActionBar from './ActionBar'
+import styles from './tareas.module.css'
 
 const Tareas = () => {
-  const { id } = useParams();
-  const [filterText, setFilterText] = useState(id ? `id:${id}` : '');
+  const { id } = useParams()
+  const [filterText, setFilterText] = useState(id ? `id:${id}` : '')
 
-  const token = useSelector(({ user }) => user?.results?.token);
-  const { init: initTareas } = useTareas();
+  const token = useSelector(({ user }) => user?.results?.token)
+  const { init: initTareas } = useTareas()
 
-  useEffect(() => {
-    initTareas(token);
-  }, [token]);
+  useEffect(() => initTareas(token), [token])
   
-  const tareas = useSelector(({ tareas }) => tareas);
+  const tareas = useSelector(({ tareas }) => tareas)
   
-  const filteredTareas = filterItems(tareas, filterText);
-  filteredTareas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+  const { filteredItems: filteredTareas, ObjectKey, inKey } = useCallback(
+    filterItems(tareas, filterText), [tareas, filterText]
+  )
+  
+  if (ObjectKey && !filterText.includes(`${ObjectKey}:`)) {
+    setFilterText([ObjectKey, ':', filterText.replace(`${inKey}:`, '')].join(''))
+  }
+
+  filteredTareas.sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
 
   return (
     <section className={styles.TareasSection}>
@@ -33,7 +38,7 @@ const Tareas = () => {
       <ActionBar />
       <TareasList tareas={filteredTareas} />
     </section>
-  );
-};
+  )
+}
 
-export default memo(Tareas);
+export default memo(Tareas)

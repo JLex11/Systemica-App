@@ -1,67 +1,73 @@
-import { memo, useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import CardProyecto from '../../components/CardProyecto';
-import FilterInput from '../../components/FilterInput';
-import Form from '../../components/Form';
-import SectionHeader from '../../components/SectionHeader';
-import SetProyecto from '../../components/SetProyecto';
-import { useAlfabetizaciones } from '../../hooks/useAlfabetizaciones';
-import { useNotification } from '../../hooks/useNotification';
-import { filterItems } from '../../utils/filterItems';
-import ActionBar from './ActionBar';
-import styles from './proyectos.module.css';
+import { memo, useCallback, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate, useParams } from 'react-router-dom'
+import CardProyecto from '../../components/CardProyecto'
+import FilterInput from '../../components/FilterInput'
+import Form from '../../components/Form'
+import SectionHeader from '../../components/SectionHeader'
+import SetProyecto from '../../components/SetProyecto'
+import { useAlfabetizaciones } from '../../hooks/useAlfabetizaciones'
+import { useNotification } from '../../hooks/useNotification'
+import { filterItems } from '../../utils/filterItems'
+import ActionBar from './ActionBar'
+import styles from './proyectos.module.css'
 
 const Proyectos = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [editingProyecto, setEditingProyecto] = useState(null);
-  const { id } = useParams();
-  const [filterText, setFilterText] = useState(id ? `id:${id}` : '');
+  const [showForm, setShowForm] = useState(false)
+  const [editingProyecto, setEditingProyecto] = useState(null)
+  const { id } = useParams()
+  const [filterText, setFilterText] = useState(id ? `id:${id}` : '')
 
-  const token = useSelector(({ user }) => user?.results?.token);
-  const { init: initAlfabetizaciones } = useAlfabetizaciones();
+  const token = useSelector(({ user }) => user?.results?.token)
+  const { init: initAlfabetizaciones } = useAlfabetizaciones()
 
   useEffect(() => {
-    initAlfabetizaciones(token);
-  }, [token]);
+    initAlfabetizaciones(token)
+  }, [token])
 
-  let proyectos = useSelector(({ alfabetizaciones }) => id
+  const alfabetizaciones = useSelector(({ alfabetizaciones }) => id
     ? alfabetizaciones.filter(({ id_alfabetizacion }) => id_alfabetizacion == id)
     : alfabetizaciones
-  );
+  )
 
-  const alumnos = useSelector(({ alumnos }) => alumnos);
-  const contratistas = useSelector(({ contratistas }) => contratistas);
+  const alumnos = useSelector(({ alumnos }) => alumnos)
+  const contratistas = useSelector(({ contratistas }) => contratistas)
 
-  proyectos = useCallback(proyectos.map(proyecto => {
-    const alumno = alumnos?.find(({ id_alumno }) => id_alumno == proyecto?.id_alumno);
-    const contratista = contratistas?.find(({ id_contratista }) => id_contratista == proyecto?.id_contratista);
-    return { ...alumno, ...contratista, ...proyecto };
-  }), [proyectos]);
+  const proyectos = useCallback(alfabetizaciones.map(proyecto => {
+    const alumno = alumnos?.find(({ id_alumno }) => id_alumno == proyecto?.id_alumno)
+    const contratista = contratistas?.find(({ id_contratista }) => id_contratista == proyecto?.id_contratista)
+    return { ...alumno, ...contratista, ...proyecto }
+  }), [alfabetizaciones])
 
-  const filteredProyectos = filterItems(proyectos, filterText);
+  const { filteredItems: filteredProyectos, ObjectKey, inKey } = useCallback(
+    filterItems(proyectos, filterText)
+  )
+  
+  if (ObjectKey && !filterText.includes(`${ObjectKey}:`)) {
+    setFilterText([ObjectKey, ':', filterText.replace(`${inKey}:`, '')].join(''))
+  }
 
-  const notification = useNotification();
-  const proyectoActions = useAlfabetizaciones();
+  const notification = useNotification()
+  const proyectoActions = useAlfabetizaciones()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleReport = ({ proyecto, tareas, alumno, contratista }) => {
     
     navigate(`/reportes/${proyecto.id_alfabetizacion}`, {
       state: { proyecto, tareas, alumno, contratista },
-    });
-  };
+    })
+  }
 
   const handleEdit = (proyecto) => {
-    setEditingProyecto(proyecto);
-    setShowForm(true);
-  };
+    setEditingProyecto(proyecto)
+    setShowForm(true)
+  }
 
   const handleDelete = ({ id_alfabetizacion }) => {
-    notification.add({ type: 'loading', message: 'Eliminando proyecto...' });
-    proyectoActions.remove(id_alfabetizacion, token);
-  };
+    notification.add({ type: 'loading', message: 'Eliminando proyecto...' })
+    proyectoActions.remove(id_alfabetizacion, token)
+  }
 
   const handleSubmit = ({ target: { fecha_inicio, fecha_finalizacion, horas_realizadas, estado, id_alumno, id_contratista }}) => {
     proyectoActions.update(editingProyecto.id_alfabetizacion, {
@@ -72,8 +78,8 @@ const Proyectos = () => {
       estado: estado.value,
       id_alumno: id_alumno.value,
       id_contratista: id_contratista.value,
-    }, token);
-  };
+    }, token)
+  }
 
   return (
     <section className={styles.Proyectos}>
@@ -104,7 +110,7 @@ const Proyectos = () => {
         </Form>
       )}
     </section>
-  );
-};
+  )
+}
 
-export default memo(Proyectos);
+export default memo(Proyectos)

@@ -1,6 +1,6 @@
 :root {
-  font-family: cursive, /* "Montserrat", */ Arial, sans-serif;
-  font-size: 16px;
+  font-family: cursive, Arial, sans-serif;
+  font-size: 12pt;
   line-height: 24px;
   font-weight: 400;
   font-synthesis: none;
@@ -33,15 +33,9 @@ ul {
   list-style: none;
 }
 
-#root {
+#root, body {
   min-height: 100vh;
 }
-
-body {
-  min-height: 100vh;
-}
-
-.material-symbols-rounded { user-select: none;}
 
 .Content {
   width: 100%;

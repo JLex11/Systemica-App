@@ -1,8 +1,10 @@
-import { memo, useCallback, useState } from 'react'
+import { lazy, memo, Suspense, useCallback, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Loader from '../Loader'
 import styles from './cardAlumno.module.css'
-import CardBody from './CardBody'
-import CardHeader from './CardHeader'
+
+const CardHeader = lazy(() => import('./CardHeader'))
+const CardBody = lazy(() => import('./CardBody'))
 
 const CardAlumno = ({ alumno }) => {
   const [visible, setVisible] = useState(false)
@@ -24,22 +26,24 @@ const CardAlumno = ({ alumno }) => {
   
   return (
     <article className={styles.AlumnoCard}>
-      <CardHeader
-        alumno={alumno}
-        alfabetizacion={alfabetizacion}
-        tarea={tarea}
-        curso={curso}
-        handleVisible={handleVisible}
-      />
-      {
-        tarea && (
-          <CardBody
-            tarea={tarea}
-            visible={visible}
-            handleVisible={handleVisible}
-          />
-        )
-      }
+      <Suspense fallback={<Loader />}>
+        <CardHeader
+          alumno={alumno}
+          alfabetizacion={alfabetizacion}
+          tarea={tarea}
+          curso={curso}
+          handleVisible={handleVisible}
+        />
+        {
+          tarea && (
+            <CardBody
+              tarea={tarea}
+              visible={visible}
+              handleVisible={handleVisible}
+            />
+          )
+        }
+      </Suspense>
     </article>
   )
 }

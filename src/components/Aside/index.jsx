@@ -12,7 +12,7 @@ const Aside = () => {
     const aside = asideRef.current
     aside.addEventListener('mouseleave', () => setExpanded(false))
     aside.addEventListener('mouseenter', () => setExpanded(true))
-    const timer = setTimeout(() => setExpanded(false), 3000)
+    const timer = setTimeout(() => setExpanded(false), 2000)
     
     return () => {
       clearTimeout(timer)

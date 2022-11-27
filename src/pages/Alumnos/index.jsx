@@ -1,30 +1,36 @@
-import { memo, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import CardAlumno from '../../components/CardAlumno';
-import FilterInput from '../../components/FilterInput';
-import SectionHeader from '../../components/SectionHeader';
-import { useAlumnos } from '../../hooks/useAlumnos';
-import { filterItems } from '../../utils/filterItems';
-import styles from './alumnos.module.css';
+import { memo, useCallback, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import CardAlumno from '../../components/CardAlumno'
+import FilterInput from '../../components/FilterInput'
+import SectionHeader from '../../components/SectionHeader'
+import { useAlumnos } from '../../hooks/useAlumnos'
+import { filterItems } from '../../utils/filterItems'
+import styles from './alumnos.module.css'
 
 const Alumnos = () => {
-  const { id } = useParams();
-  const [filterText, setFilterText] = useState(id ? `id:${id}` : '');
+  const { id } = useParams()
+  const [filterText, setFilterText] = useState(id ? `id:${id}` : '')
 
-  const token = useSelector(({ user }) => user?.results?.token);
-  const { initAssociated: initAlumnos } = useAlumnos();
+  const token = useSelector(({ user }) => user?.results?.token)
+  const { initAssociated: initAlumnos } = useAlumnos()
 
   useEffect(() => {
-    initAlumnos([ 'cursos', 'usuarios.alumnos'], token);
-  }, [token]);
+    initAlumnos([ 'cursos', 'usuarios.alumnos'], token)
+  }, [token])
 
   const alumnos = useSelector(({ alumnos }) => id
     ? alumnos.filter(({ id_alumno }) => id_alumno == id)
     : alumnos
-  );
+  )
 
-  const alumnosFiltered = filterItems(alumnos, filterText);
+  const { filteredItems: alumnosFiltered, ObjectKey, inKey } = useCallback(
+    filterItems(alumnos, filterText)
+  )
+
+  if (ObjectKey && !filterText.includes(`${ObjectKey}:`)) {
+    setFilterText([ObjectKey, ':', filterText.replace(`${inKey}:`, '')].join(''))
+  }
 
   return (
     <section className={styles.AlumnosSection}>
@@ -40,7 +46,7 @@ const Alumnos = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default memo(Alumnos);
+export default memo(Alumnos)

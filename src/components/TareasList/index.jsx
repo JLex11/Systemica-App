@@ -51,8 +51,7 @@ const TareasList = ({ tareas }) => {
         <Form
           onSubmit={handleSubmit}
           onClose={() => setShowForm(false)}
-          submitButtonLabel='Aceptar'
-        >
+          submitButtonLabel='Aceptar'>
           <SetTarea tarea={editingTarea} />
         </Form>
       )}

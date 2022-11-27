@@ -13,29 +13,30 @@ const EstablecimientosCarousel = ({ establecimientos }) => {
 
       let carouselItems = carousel.querySelectorAll(`.${styles.CarouselItem}`)
       let carouselItemsCount = carouselItems.length
-      let carouselItemsWidth, carouselMaxScroll, carouselScrollStep
+      let carouselItemsWidth, carouselMaxScroll, carouselScrollStep, wInnerWidth
       let carouselScrollLeft = 0
 
       const calculateCarouselValues = () => {
         carouselItemsWidth = carouselItems[0].offsetWidth
         carouselMaxScroll = carouselItemsWidth * carouselItemsCount // carousel width
-        carouselScrollStep = carouselItemsWidth * 1.1
+        carouselScrollStep = carouselItemsWidth * 1
+        wInnerWidth = window.innerWidth
       }
 
       calculateCarouselValues()
-
       
       const handleWheel = event => {
-        if (screen.width < 775) return
+        if (wInnerWidth < 775) return
         
         event.preventDefault()
         carouselScrollLeft += event.deltaY > 0 ? carouselScrollStep : -carouselScrollStep
         carouselScrollLeft = Math.max(0, Math.min(carouselScrollLeft, carouselMaxScroll))
         carousel.scrollTo({ left: carouselScrollLeft })
       }
-      
+
       const observer = new MutationObserver(calculateCarouselValues)
-      observer.observe(document.body, { attributes: true, childList: true, subtree: true })
+      observer.observe(document.body, { attributes: true/* , childList: true, subtree: true */ })
+      
       carousel.addEventListener('wheel', handleWheel)
       addEventListener('resize', calculateCarouselValues)
       return () => {

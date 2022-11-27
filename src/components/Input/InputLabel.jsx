@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import styles from './inputLabel.module.css';
+import { memo } from 'react'
+import styles from './inputLabel.module.css'
 
 const InputLabel = ({ type, id, labelText, handleChange, placeHolder = ' ' }) => {
   return (
@@ -9,7 +9,7 @@ const InputLabel = ({ type, id, labelText, handleChange, placeHolder = ' ' }) =>
         {labelText}
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default memo(InputLabel);
+export default memo(InputLabel)

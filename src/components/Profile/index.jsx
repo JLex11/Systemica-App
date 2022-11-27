@@ -1,14 +1,14 @@
-import { memo } from 'react';
-import { FiEdit2 } from 'react-icons/fi';
-import { useSelector } from 'react-redux';
-import styles from './profile.module.css';
+import { memo } from 'react'
+import { FiEdit2 } from 'react-icons/fi'
+import { useSelector } from 'react-redux'
+import styles from './profile.module.css'
 
 const Profile = ({ usuario, handleEdit }) => {
-  const { nombres, apellidos, edad, foto_url, email, username } = usuario;
+  const { nombres, apellidos, edad, foto_url, email, username } = usuario
 
-  const results = useSelector(({ user }) => user?.results);
+  const results = useSelector(({ user }) => user?.results)
 
-  const hasOwner = results?.user_info.id_usuario == usuario.id_usuario;
+  const hasOwner = results?.user_info.id_usuario == usuario.id_usuario
 
   return (
     <section className={styles.Profile}>
@@ -29,7 +29,7 @@ const Profile = ({ usuario, handleEdit }) => {
         <h5>{nombres} {apellidos}</h5>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default memo(Profile);
+export default memo(Profile)

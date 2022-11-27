@@ -1,10 +1,10 @@
-import { memo, useCallback } from 'react';
-import { BsSearch } from 'react-icons/bs';
-import { MdClear } from 'react-icons/md';
-import styles from './filterInput.module.css';
+import { memo, useCallback } from 'react'
+import { BsSearch } from 'react-icons/bs'
+import { MdClear } from 'react-icons/md'
+import styles from './filterInput.module.css'
 
 const FilterInput = ({ filterText, setFilterText }) => {
-  const handleClear = useCallback(() => setFilterText(''));
+  const handleClear = useCallback(() => setFilterText(''))
 
   return (
     <div className={styles.SearchBox}>
@@ -23,7 +23,7 @@ const FilterInput = ({ filterText, setFilterText }) => {
         {filterText.length > 0 ? <MdClear size={20} /> : <BsSearch size={20} />}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default memo(FilterInput);
+export default memo(FilterInput)

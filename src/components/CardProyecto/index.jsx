@@ -1,11 +1,11 @@
 import clsx from 'clsx'
-import { memo } from 'react'
+import { lazy, memo, Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import CardBody from './CardBody'
-import CardHeader from './CardHeader'
+import Loader from '../Loader'
 import styles from './cardProyecto.module.css'
 
-
+const CardBody = lazy(()=>import('./CardBody'))
+const CardHeader = lazy(()=>import('./CardHeader'))
 
 const CardProyecto = ({ proyecto, onEdit, onDelete, handleReport }) => {
   const user = useSelector(({ user }) => user?.results?.user_info)
@@ -38,22 +38,24 @@ const CardProyecto = ({ proyecto, onEdit, onDelete, handleReport }) => {
 
   return (
     <li className={styleCardProyecto}>
-      <CardHeader
-        alumno={alumno}
-        tareas={tareas}
-        contratista={contratista}
-        proyecto={proyecto}
-        activeActions={activeActions}
-        onEdit={onEdit}
-        onDelete={onDelete}
-        handleReport={handleReport}
-      />
-      <CardBody
-        alumno={alumno}
-        tareas={tareas}
-        contratista={contratista}
-        proyecto={proyecto}
-      />
+      <Suspense fallback={<Loader />}>
+        <CardHeader
+          alumno={alumno}
+          tareas={tareas}
+          contratista={contratista}
+          proyecto={proyecto}
+          activeActions={activeActions}
+          onEdit={onEdit}
+          onDelete={onDelete}
+          handleReport={handleReport}
+        />
+        <CardBody
+          alumno={alumno}
+          tareas={tareas}
+          contratista={contratista}
+          proyecto={proyecto}
+        />
+      </Suspense>
     </li>
   )
 }

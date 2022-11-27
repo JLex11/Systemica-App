@@ -1,33 +1,31 @@
-import clsx from 'clsx';
-import { memo, useCallback, useState } from 'react';
-import { GrClose } from 'react-icons/gr';
-import styles from './form.module.css';
+import clsx from 'clsx'
+import { memo, useCallback, useState } from 'react'
+import { GrClose } from 'react-icons/gr'
+import styles from './form.module.css'
 
 const Form = ({ children, onSubmit, onClose, submitButtonLabel = 'aceptar', titulo, floating = true }) => {
-  const [closing, setClosing] = useState(false);
-
-  /* useHotkeys('esc', () => handleCloseClick()); */
+  const [closing, setClosing] = useState(false)
 
   const handleCloseClick = useCallback(() => {
     if (!closing) {
-      setClosing(true);
-      setTimeout(() => onClose(), 300);
+      setClosing(true)
+      setTimeout(() => onClose(), 300)
     }
-  }, [closing]);
+  }, [closing])
 
   const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    onSubmit(e);
-    handleCloseClick();
-  });
+    e.preventDefault()
+    onSubmit(e)
+    handleCloseClick()
+  })
 
   const ContainerStyles = clsx(styles.ContainerForm, [
     floating && styles.ContainerFormFloating,
-  ]);
+  ])
 
   const FStyles = clsx(styles.Form, [
     closing && styles.Closing
-  ]);
+  ])
 
   return (
     <div className={ContainerStyles}>
@@ -46,7 +44,7 @@ const Form = ({ children, onSubmit, onClose, submitButtonLabel = 'aceptar', titu
         </footer>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default memo(Form);
+export default memo(Form)

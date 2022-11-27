@@ -1,7 +1,7 @@
-import { BsListTask, BsPeopleFill } from 'react-icons/bs';
-import { FaBuilding, FaProjectDiagram } from 'react-icons/fa';
-import { GoHome } from 'react-icons/go';
-import { MdWork } from 'react-icons/md';
+import { BsListTask, BsPeopleFill } from 'react-icons/bs'
+import { FaBuilding, FaProjectDiagram } from 'react-icons/fa'
+import { GoHome } from 'react-icons/go'
+import { MdWork } from 'react-icons/md'
 
 export const pages = [
   {
@@ -46,4 +46,4 @@ export const pages = [
     icon: BsListTask,
     key: 'alt+6',
   }
-];
+]

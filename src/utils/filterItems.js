@@ -1,30 +1,41 @@
 export const filterItems = (items, query) => {
-  if (!query) return items;
-  if (typeof query !== typeof '') return items;
+  const result = {
+    filteredItems: items,
+    ObjectKey: null,
+    inKey: query
+  }
+
+  if (!query) return result
+  if (typeof query !== typeof '') return result
   
   if (query.match(/[a-z]+:{1}/i)) {
-    const [fieldStr, stringValue] = query.split(':');
+    const [fieldStr, stringValue] = query.split(':')
 
     const ObjectKey = Object.keys(items[0]).find(key => 
       key.match(new RegExp(fieldStr, 'i'))
-    );
+    )
 
     if (!ObjectKey) {
-      return items.filter(item =>
+      result.filteredItems = items.filter(item =>
         Object.values(item).some(value =>
           value.toString().toLowerCase().includes(stringValue.toString().toLowerCase())
         )
-      );
+      )
+      return result
     }
 
-    return items.filter(item => {
-      return item[ObjectKey].toString().toLowerCase().includes(stringValue.toString().toLowerCase());
-    });
+    result.ObjectKey = ObjectKey
+    result.inKey = fieldStr
+    result.filteredItems = items.filter(item => {
+      return item[ObjectKey].toString().toLowerCase().includes(stringValue.toString().toLowerCase())
+    })
+    return result
   }
 
-  return items.filter(item =>
+  result.filteredItems = items.filter(item =>
     Object.values(item).some(value =>
       value.toString().toLowerCase().includes(query.toLowerCase())
     )
-  );
-};
+  )
+  return result
+}

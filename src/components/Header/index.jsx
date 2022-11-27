@@ -1,21 +1,22 @@
-import { memo, useEffect, useRef } from 'react';
-import logoURL from '../../assets/icons/pencil.svg';
-import LogoutIcon from '../HeaderIcons/LogoutIcon';
-import UserIcon from '../HeaderIcons/UserIcon';
-import styles from './header.module.css';
+import { lazy, memo, Suspense, useEffect, useRef } from 'react'
+import logoURL from '../../assets/icons/pencil.svg'
+import Loader from '../Loader'
+import styles from './header.module.css'
+const LogoutIcon = lazy(()=> import('../HeaderIcons/LogoutIcon'))
+const UserIcon = lazy(() => import('../HeaderIcons/UserIcon'))
 
 const Header = () => {
-  const headerRef = useRef(null);
+  const headerRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      const header = headerRef.current;
-      header.classList.toggle(styles.Sticky, window.scrollY > 0);
-    };
+      const header = headerRef.current
+      header.classList.toggle(styles.Sticky, window.scrollY > 0)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <header className={styles.Header} ref={headerRef}>
@@ -24,11 +25,13 @@ const Header = () => {
         <h1>Systemica</h1>
       </div>
       <div className={styles.Icons}>
-        <UserIcon />
-        <LogoutIcon />
+        <Suspense fallback={<Loader />}>
+          <UserIcon />
+          <LogoutIcon />
+        </Suspense>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default memo(Header);
+export default memo(Header)

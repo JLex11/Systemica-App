@@ -1,16 +1,16 @@
-import { memo, useEffect } from 'react';
-import { BiNavigation } from 'react-icons/bi';
-import { BsTagFill } from 'react-icons/bs';
-import { Link, useParams } from 'react-router-dom';
-import styles from './establecimientoItem.module.css';
+import { memo, useEffect } from 'react'
+import { BiNavigation } from 'react-icons/bi'
+import { BsTagFill } from 'react-icons/bs'
+import { Link, useParams } from 'react-router-dom'
+import styles from './establecimientoItem.module.css'
 
 const EstablecimientoItem = ({ establecimiento }) => {
-  const { id } = useParams();
+  const { id } = useParams()
   
   useEffect(() => {
     if (id == establecimiento.id_establecimiento)
-      document.getElementById(id).scrollIntoView();
-  }, [id]);
+      document.getElementById(id).scrollIntoView()
+  }, [id])
 
   return (
     <div className={styles.EstablecimientoItem} id={establecimiento.id_establecimiento}>
@@ -19,15 +19,13 @@ const EstablecimientoItem = ({ establecimiento }) => {
           className={styles.NavigateToButton}
           title={`ir a ${establecimiento.nombre}`}
           href={establecimiento.url}
-          target='_blank' rel='noreferrer'
-        >
+          target='_blank' rel='noreferrer'>
           <BiNavigation />
         </a>
       )}
       <Link
         to={`/establecimientos/${establecimiento.id_establecimiento}`}
-        className={styles.Content}
-      >
+        className={styles.Content}>
         <picture className={styles.EstablecimientoImage}>
           <img
             src={establecimiento.img_url}
@@ -46,7 +44,7 @@ const EstablecimientoItem = ({ establecimiento }) => {
         </div>
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default memo(EstablecimientoItem);
+export default memo(EstablecimientoItem)
