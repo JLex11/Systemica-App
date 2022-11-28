@@ -13,10 +13,20 @@
   padding: 40px 25px;
   border-radius: 15px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.35);
-  background-color: #0093E9;
-  background-image: linear-gradient(160deg, #7d55c7 0%, #c933ff 100%);
+  background-color: #9b27c5;
+  background: linear-gradient(270deg, #9b27c5, #7d55c7);
+  background-size: 400% 400%;
+  animation: background-animate 5s ease infinite;
   color: white;
   gap: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes background-animate {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 .LoginHeader {

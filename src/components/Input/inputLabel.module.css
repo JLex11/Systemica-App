@@ -1,5 +1,6 @@
 .ContainerInput {
   position: relative;
+  min-width: 300px;
 }
 
 .ContainerInput input {
