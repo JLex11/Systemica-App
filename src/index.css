@@ -26,7 +26,7 @@
 }
 
 :root {
-  font-family: 'ComicNeue', /* cursive, */ Arial, sans-serif;
+  font-family: 'ComicNeue', cursive, Arial, sans-serif;
   font-size: 12pt;
   line-height: 24px;
   font-weight: 400;
