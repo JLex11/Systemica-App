@@ -1,5 +1,32 @@
+@font-face {
+  font-family: 'ComicNeue';
+  src: 
+    url('fonts/Comic_Neue/ComicNeue-Regular.woff') format('woff'),
+    url('fonts/Comic_Neue/ComicNeue-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'ComicNeue';
+  src: 
+    url('fonts/Comic_Neue/ComicNeue-Light.woff') format('woff'),
+    url('fonts/Comic_Neue/ComicNeue-Light.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'ComicNeue';
+  src: 
+    url('fonts/Comic_Neue/ComicNeue-Bold.woff') format('woff'),
+    url('fonts/Comic_Neue/ComicNeue-Bold.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 700;
+}
+
 :root {
-  font-family: cursive, Arial, sans-serif;
+  font-family: 'ComicNeue', /* cursive, */ Arial, sans-serif;
   font-size: 12pt;
   line-height: 24px;
   font-weight: 400;

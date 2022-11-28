@@ -25,3 +25,7 @@ dist-ssr
 
 # Local Netlify folder
 .netlify
+
+#data base and thunder collection
+Systemica - Database.sql
+thunder-collection_Systemica_Backend.json

@@ -10,7 +10,7 @@
 .CardHeader {
   padding: 15px;
   border-radius: 60px;
-  box-shadow: 0 0 10px #00000017;
+  box-shadow: 0 0 10px #0000002e;
   overflow: hidden;
   background-color: rgb(245, 245, 245);
   transition: padding .3s .2s ease-in-out, box-shadow .3s ease-in-out;
