@@ -44,7 +44,11 @@
   border-radius: 15px;
   gap: 10px;
   color: #27323c;
-  transition: background 0.5s, color 0.5s, margin-left 0.5s, padding-right 0.5s;
+  transition:
+    background-color 0.5s,
+    color 0.5s,
+    margin-left 0.5s,
+    padding-right 0.5s;
 }
 
 .Expanded .AsideLink {
@@ -53,7 +57,7 @@
 }
 
 .AsideLink:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   color: black;
 }
 
@@ -86,5 +90,16 @@
   .Expanded .AsideLink {
     margin-left: 0;
     padding-right: 0;
+  }
+
+  .AsideLink {
+    transition: 
+      padding 0.3s,
+      font-size 0.3s;
+  }
+
+  .AsideLink:hover {
+    font-size: 12pt;
+    padding: 10px;
   }
 }
