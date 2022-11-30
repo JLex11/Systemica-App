@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'ComicNeue';
   src: 
-    url('fonts/Comic_Neue/ComicNeue-Regular.woff') format('woff'),
-    url('fonts/Comic_Neue/ComicNeue-Regular.ttf') format('truetype');
+    url('../public/fonts/Comic_Neue/ComicNeue-Regular.woff') format('woff'),
+    url('../public/fonts/Comic_Neue/ComicNeue-Regular.ttf') format('truetype');
   font-display: swap;
   font-weight: 400;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: 'ComicNeue';
   src: 
-    url('fonts/Comic_Neue/ComicNeue-Light.woff') format('woff'),
-    url('fonts/Comic_Neue/ComicNeue-Light.ttf') format('truetype');
+    url('../public/fonts/Comic_Neue/ComicNeue-Light.woff') format('woff'),
+    url('../public/fonts/Comic_Neue/ComicNeue-Light.ttf') format('truetype');
   font-display: swap;
   font-weight: 300;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: 'ComicNeue';
   src: 
-    url('fonts/Comic_Neue/ComicNeue-Bold.woff') format('woff'),
-    url('fonts/Comic_Neue/ComicNeue-Bold.ttf') format('truetype');
+    url('../public/fonts/Comic_Neue/ComicNeue-Bold.woff') format('woff'),
+    url('../public/fonts/Comic_Neue/ComicNeue-Bold.ttf') format('truetype');
   font-display: swap;
   font-weight: 700;
 }
@@ -70,31 +70,4 @@ ul {
 
 section {
   padding: 10px;
-}
-
-/* ----------------- DataTable ---------------- */
-.TUEFO, .cEMZEX { /*Title and filter bar*/
-  padding: 5px;
-}
-
-.gZWIKX {
-  background: linear-gradient(to top, #bc91cd, #c8aad5);
-  border-radius: 10px;
-  color: white;
-  font-size: 11pt;
-  margin: 5px;
-  margin-top: 0;
-  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.181);
-}
-
-.gFYXSL {
-  gap: 10px;
-  padding: 10px;
-}
-
-.kgEPYv {
-  min-height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #00000029;
-  padding: 15px 0;
 }
