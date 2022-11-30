@@ -23,10 +23,11 @@ const Profile = ({ usuario, handleEdit }) => {
       <div className={styles.Body}>
         <div className={styles.Usuario}>
           <h4>@{username}</h4>
+          <h4 className={styles.Rol}>{results?.user_info?.rol}</h4>
         </div>
         <p>{email}</p>
         <span>{edad} años</span>
-        <h5>{nombres} {apellidos}</h5>
+        <h4>{nombres} {apellidos}</h4>
       </div>
     </section>
   )

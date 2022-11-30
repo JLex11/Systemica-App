@@ -1,18 +1,18 @@
-import { memo, useCallback } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+import { memo, useCallback } from 'react'
+import Particles from 'react-tsparticles'
+import { loadFull } from 'tsparticles'
 
 const ParticlesBackground = () => {
   const particlesInit = useCallback(async engine => {
-    await loadFull(engine);
-  }, []);
+    await loadFull(engine)
+  }, [])
 
   return (
     <Particles
       id='tsparticles'
       init={particlesInit}
       options={{
-        fpsLimit: 35,
+        fpsLimit: 45,
         interactivity: {
           events: {
             onClick: { enable: true, mode: 'push' },
@@ -65,7 +65,7 @@ const ParticlesBackground = () => {
         zLayers: 1,
       }}
     />
-  );
-};
+  )
+}
 
-export default memo(ParticlesBackground);
+export default memo(ParticlesBackground)

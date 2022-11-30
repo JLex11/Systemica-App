@@ -23,8 +23,14 @@
 .Usuario {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   width: 100%;
+}
+
+.Usuario .Rol {
+  background-color: whitesmoke;
+  border-radius: 7px;
+  padding: 3px 5px;
 }
 
 .SettingsButton {
