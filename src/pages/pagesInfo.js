@@ -1,6 +1,7 @@
 import { BsListTask, BsPeopleFill } from 'react-icons/bs'
 import { FaBuilding, FaProjectDiagram } from 'react-icons/fa'
 import { GoHome } from 'react-icons/go'
+import { IoMdSchool } from 'react-icons/io'
 import { MdWork } from 'react-icons/md'
 
 export const pages = [
@@ -34,13 +35,20 @@ export const pages = [
   },
   {
     id: 5,
+    title: 'Instituciones',
+    path: '/instituciones',
+    icon: IoMdSchool,
+    key: 'alt+4',
+  },
+  {
+    id: 6,
     title: 'Proyectos',
     path: '/proyectos',
     icon: FaProjectDiagram,
     key: 'alt+5',
   },
   {
-    id: 6,
+    id: 7,
     title: 'Tareas',
     path: '/tareas',
     icon: BsListTask,

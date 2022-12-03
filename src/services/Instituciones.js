@@ -1,7 +1,7 @@
 import { API_URL } from './ApiUrl'
-const API_PATH = '/establecimientos'
+const API_PATH = '/instituciones_educativas'
 
-export const createEstablecimiento = async (establecimiento, token) => {
+export const createInstitucion = async (institucion, token) => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
     method: 'POST',
     mode: 'cors',
@@ -9,12 +9,12 @@ export const createEstablecimiento = async (establecimiento, token) => {
       'Content-Type': 'application/json',
       Authorization: token,
     },
-    body: JSON.stringify(establecimiento),
+    body: JSON.stringify(institucion),
   })
   return await response.json()
 }
 
-export const deleteEstablecimiento = async (id, token) => {
+export const deleteInstitucion = async (id, token) => {
   await fetch(`${API_URL}${API_PATH}/${id}`, {
     method: 'DELETE',
     mode: 'cors',
@@ -25,7 +25,7 @@ export const deleteEstablecimiento = async (id, token) => {
   })
 }
 
-export const getEstablecimientos = async token => {
+export const getInstituciones = async token => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
     method: 'GET',
     mode: 'cors',
@@ -36,7 +36,7 @@ export const getEstablecimientos = async token => {
   return await response.json()
 }
 
-export const getEstablecimientosAssoc = async (assocTables = [], token) => {
+export const getInstitucionesAssoc = async (assocTables = [], token) => {
   const response = await fetch(
     `${API_URL}${API_PATH}?assocTables=${assocTables.join(',')}`,
     {
@@ -50,7 +50,7 @@ export const getEstablecimientosAssoc = async (assocTables = [], token) => {
   return await response.json()
 }
 
-export const updateEstablecimiento = async (establecimiento, token) => {
+export const updateInstitucion = async (institucion, token) => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
     method: 'PUT',
     mode: 'cors',
@@ -58,7 +58,7 @@ export const updateEstablecimiento = async (establecimiento, token) => {
       'Content-Type': 'application/json',
       Authorization: token,
     },
-    body: JSON.stringify(establecimiento),
+    body: JSON.stringify(institucion),
   })
   return await response.json()
 }

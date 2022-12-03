@@ -10,10 +10,12 @@ import { useAlfabetizaciones } from './hooks/useAlfabetizaciones'
 import { useAlumnos } from './hooks/useAlumnos'
 import { useContratistas } from './hooks/useContratistas'
 import { useEstablecimientos } from './hooks/useEstablecimientos'
+import { useInstituciones } from './hooks/useInstituciones'
 import { useTareas } from './hooks/useTareas'
 import { useUsuarios } from './hooks/useUsuarios'
 const AgregarRol = lazy(()=> import('./pages/AgregarRol'))
 const Establecimientos = lazy(()=> import('./pages/Establecimientos'))
+const Instituciones = lazy(()=> import('./pages/Instituciones'))
 const Reportes = lazy(()=> import('./pages/Reportes'))
 const Alumnos = lazy(()=> import('./pages/Alumnos'))
 const Contratistas = lazy(()=> import('./pages/Contratistas'))
@@ -30,6 +32,7 @@ function App() {
   const { initAssociated: initAlumnos } = useAlumnos()
   const { init: initContratistas } = useContratistas()
   const { init: initEstablecimientos } = useEstablecimientos()
+  const { init: initInstituciones } = useInstituciones()
   const { init: initAlfabetizaciones } = useAlfabetizaciones()
   const { init: initTareas } = useTareas()
   const { init: initUsuarios } = useUsuarios()
@@ -39,6 +42,7 @@ function App() {
     initAlumnos([ 'cursos', 'usuarios.alumnos'], token)
     initContratistas(token)
     initEstablecimientos(token)
+    initInstituciones(token)
     initAlfabetizaciones(token)
     initTareas(token)
     initUsuarios(token)
@@ -74,6 +78,8 @@ const PrivateRoutes = () => {
         <Route path={'/proyectos/:id'} element={<Proyectos />} />
         <Route path={'/establecimientos'} element={<Establecimientos />} />
         <Route path={'/establecimientos/:id'} element={<Establecimientos />} />
+        <Route path={'/instituciones'} element={<Instituciones />} />
+        <Route path={'/instituciones/:id'} element={<Instituciones />} />
         <Route path={'/reportes/:id'} element={<Reportes />} />
         <Route path={'*'} element={<Navigate to={'/inicio'} />} />
       </Routes>

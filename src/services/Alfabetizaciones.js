@@ -1,5 +1,5 @@
-import { API_URL } from './ApiUrl';
-const API_PATH = '/alfabetizaciones';
+import { API_URL } from './ApiUrl'
+const API_PATH = '/alfabetizaciones'
 
 export const createAlfabetizacion = async (alfabetizacion, token) => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
@@ -7,12 +7,12 @@ export const createAlfabetizacion = async (alfabetizacion, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token
+      Authorization: token,
     },
     body: JSON.stringify(alfabetizacion),
-  });
-  return await response.json();
-};
+  })
+  return await response.json()
+}
 
 export const deleteAlfabetizacion = async (id, token) => {
   await fetch(`${API_URL}${API_PATH}/${id}`, {
@@ -20,24 +20,21 @@ export const deleteAlfabetizacion = async (id, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token
+      Authorization: token,
     },
-  });
-};
+  })
+}
 
-export const getAlfabetizaciones = async (token) => {
-  const response = await fetch(
-    `${API_URL}${API_PATH}`,
-    {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Authorization': token
-      },
-    }
-  );
-  return await response.json();
-};
+export const getAlfabetizaciones = async token => {
+  const response = await fetch(`${API_URL}${API_PATH}`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: token,
+    },
+  })
+  return await response.json()
+}
 
 export const getAlfabetizacionesAssoc = async (assocTables = [], token) => {
   const response = await fetch(
@@ -46,12 +43,12 @@ export const getAlfabetizacionesAssoc = async (assocTables = [], token) => {
       method: 'GET',
       mode: 'cors',
       headers: {
-        'Authorization': token
+        Authorization: token,
       },
     }
-  );
-  return await response.json();
-};
+  )
+  return await response.json()
+}
 
 export const updateAlfabetizacion = async (id, alfabetizacion, token) => {
   const response = await fetch(`${API_URL}${API_PATH}/${id}`, {
@@ -59,9 +56,9 @@ export const updateAlfabetizacion = async (id, alfabetizacion, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token
+      Authorization: token,
     },
     body: JSON.stringify(alfabetizacion),
-  });
-  return await response.json();
-};
+  })
+  return await response.json()
+}

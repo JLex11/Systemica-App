@@ -1,5 +1,5 @@
-import { API_URL } from './ApiUrl';
-const API_PATH = '/cursos';
+import { API_URL } from './ApiUrl'
+const API_PATH = '/cursos'
 
 export const createCurso = async (curso, token) => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
@@ -7,12 +7,12 @@ export const createCurso = async (curso, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token,
+      Authorization: token,
     },
     body: JSON.stringify(curso),
-  });
-  return await response.json();
-};
+  })
+  return await response.json()
+}
 
 export const deleteCurso = async (id, token) => {
   await fetch(`${API_URL}${API_PATH}/${id}`, {
@@ -20,24 +20,21 @@ export const deleteCurso = async (id, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token,
+      Authorization: token,
     },
-  });
-};
+  })
+}
 
-export const getCursos = async (token) => {
-  const response = await fetch(
-    `${API_URL}${API_PATH}`,
-    {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Authorization': token,
-      },
-    }
-  );
-  return await response.json();
-};
+export const getCursos = async token => {
+  const response = await fetch(`${API_URL}${API_PATH}`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: token,
+    },
+  })
+  return await response.json()
+}
 
 export const getCursosAssoc = async (assocTables = [], token) => {
   const response = await fetch(
@@ -46,12 +43,12 @@ export const getCursosAssoc = async (assocTables = [], token) => {
       method: 'GET',
       mode: 'cors',
       headers: {
-        'Authorization': token,
+        Authorization: token,
       },
     }
-  );
-  return await response.json();
-};
+  )
+  return await response.json()
+}
 
 export const updateCurso = async (curso, token) => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
@@ -59,9 +56,9 @@ export const updateCurso = async (curso, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token,
+      Authorization: token,
     },
     body: JSON.stringify(curso),
-  });
-  return await response.json();
-};
+  })
+  return await response.json()
+}

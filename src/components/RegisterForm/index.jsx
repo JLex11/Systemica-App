@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCursos } from '../../hooks/useCursos'
 import { useEstablecimientos } from '../../hooks/useEstablecimientos'
 import { useField } from '../../hooks/useField'
+import { useInstituciones } from '../../hooks/useInstituciones'
 import { useNotification } from '../../hooks/useNotification'
 import { useUsuarios } from '../../hooks/useUsuarios'
 import { createUsuario } from '../../services/Usuarios'
@@ -25,6 +26,7 @@ const RegisterForm = () => {
   const usuariosActions = useUsuarios()
   const cursosActions = useCursos()
   const establecimientosActions = useEstablecimientos()
+  const institucionesActions = useInstituciones()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -74,8 +76,11 @@ const RegisterForm = () => {
       return
     }
 
-    cursosActions.init(registerResponse?.results?.token)
-    establecimientosActions.init(registerResponse?.results?.token)
+    const { results: { token }} = registerResponse
+
+    cursosActions.init(token)
+    establecimientosActions.init(token)
+    institucionesActions.init(token)
 
     notifications.add({ message: registerResponse.message, type: 'success' })
     navigate(`/agregar/${rol.value}`, { state: registerResponse })

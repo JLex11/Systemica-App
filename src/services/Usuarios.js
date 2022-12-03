@@ -1,8 +1,8 @@
-import { API_URL } from './ApiUrl';
-const API_PATH = '/usuarios';
-const API_REGISTER_PATH = '/register';
+import { API_URL } from './ApiUrl'
+const API_PATH = '/usuarios'
+const API_REGISTER_PATH = '/register'
 
-export const createUsuario = async (usuario) => {
+export const createUsuario = async usuario => {
   const response = await fetch(`${API_URL}${API_REGISTER_PATH}`, {
     method: 'POST',
     mode: 'cors',
@@ -10,9 +10,9 @@ export const createUsuario = async (usuario) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(usuario),
-  });
-  return await response.json();
-};
+  })
+  return await response.json()
+}
 
 export const deleteUsuario = async (id, token) => {
   await fetch(`${API_URL}${API_PATH}/${id}`, {
@@ -20,24 +20,21 @@ export const deleteUsuario = async (id, token) => {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': token,
+      Authorization: token,
     },
-  });
-};
+  })
+}
 
-export const getUsuarios = async (token) => {
-  const response = await fetch(`${API_URL}${API_PATH}`,
-    {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        'Authorization': token,
-      },
-    }
-  );
-  return await response.json();
-};
-
+export const getUsuarios = async token => {
+  const response = await fetch(`${API_URL}${API_PATH}`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      Authorization: token,
+    },
+  })
+  return await response.json()
+}
 
 export const getUsuariosAssoc = async (assocTables = [], id, token) => {
   const response = await fetch(
@@ -48,12 +45,12 @@ export const getUsuariosAssoc = async (assocTables = [], id, token) => {
       method: 'GET',
       mode: 'cors',
       headers: {
-        'Authorization': token,
+        Authorization: token,
       },
     }
-  );
-  return await response.json();
-};
+  )
+  return await response.json()
+}
 
 export const updateUsuario = async (usuario, token) => {
   const response = await fetch(`${API_URL}${API_PATH}`, {
@@ -64,6 +61,6 @@ export const updateUsuario = async (usuario, token) => {
       Authorization: token,
     },
     body: JSON.stringify(usuario),
-  });
-  return await response.json();
-};
+  })
+  return await response.json()
+}

@@ -1,25 +1,25 @@
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import EstablecimientosCarousel from '../../components/EstablecimientosCarousel'
 import FilterInput from '../../components/FilterInput'
+import InstitucionesCarousel from '../../components/institucionesCarousel'
 import SectionHeader from '../../components/SectionHeader'
-import { useEstablecimientos } from '../../hooks/useEstablecimientos'
+import { useInstituciones } from '../../hooks/useInstituciones'
 import { filterItems } from '../../utils/filterItems'
 import ActionBar from './ActionBar'
-import styles from './establecimientos.module.css'
+import styles from './instituciones.module.css'
 
-const Establecimientos = () => {
+const Instituciones = () => {
   const [filterText, setFilterText] = useState('')
-  const establecimientos = useSelector(({ establecimientos }) => establecimientos)
+  const instituciones = useSelector(({ instituciones }) => instituciones)
   const token = useSelector(({ user }) => user?.results?.token)
-  const { init: initEstablecimientos } = useEstablecimientos()
+  const { init: initInstituciones } = useInstituciones()
 
   useEffect(() => {
-    initEstablecimientos(token)
+    initInstituciones(token)
   }, [token])
 
-  const { filteredItems: establecimientosFiltered, ObjectKey, inKey } = useCallback(
-    filterItems(establecimientos, filterText)
+  const { filteredItems: institucionesFiltered, ObjectKey, inKey } = useCallback(
+    filterItems(instituciones, filterText)
   )
   
   if (ObjectKey && !filterText.includes(`${ObjectKey}:`)) {
@@ -27,14 +27,14 @@ const Establecimientos = () => {
   }
 
   return (
-    <section className={styles.Establecimientos}>
-      <SectionHeader title='Establecimientos' >
+    <section className={styles.Instituciones}>
+      <SectionHeader title='instituciones' >
         <FilterInput filterText={filterText} setFilterText={setFilterText} />
       </SectionHeader>
       <ActionBar />
-      <EstablecimientosCarousel establecimientos={establecimientosFiltered} />
+      <InstitucionesCarousel instituciones={institucionesFiltered} />
     </section>
   )
 }
 
-export default memo(Establecimientos)
+export default memo(Instituciones)

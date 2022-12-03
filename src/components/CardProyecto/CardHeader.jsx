@@ -7,7 +7,7 @@ import styles from './cardProyecto.module.css'
 const CardHeader = ({ proyecto, contratista, tareas, alumno, activeActions, onEdit, onDelete, handleReport }) => {
   return (
     <header className={styles.CardHeader}>
-      <span>id: {proyecto.id_alfabetizacion}</span>
+      <span>id: <b>{proyecto.id_alfabetizacion}</b></span>
       <div className={styles.Actions}>
         {proyecto.estado == 'Finalizado' && (
           <button

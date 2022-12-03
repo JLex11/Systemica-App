@@ -1,0 +1,25 @@
+.Instituciones {
+  width: 100%;
+  height: 100%;
+}
+
+.ActionBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AddTareaIcon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14pt;
+  border-radius: 7px;
+  padding: 5px 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.AddTareaIcon:hover {
+  background-color: #e6e6e6;
+}

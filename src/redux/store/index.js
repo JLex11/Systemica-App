@@ -1,15 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import { alfabetizacionesReducer } from '../reducers/Alfabetizaciones';
-import { alumnosReducer } from '../reducers/Alumnos';
-import { contratistasReducer } from '../reducers/Contratistas';
-import { cursosReducer } from '../reducers/Cursos';
-import { establecimientosReducer } from '../reducers/Establecimientos';
-import { notificationsReducer } from '../reducers/Notifications';
-import { tareasReducer } from '../reducers/Tareas';
-import { userReducer } from '../reducers/User';
-import { usuariosReducer } from '../reducers/Usuarios';
+import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
+import thunk from 'redux-thunk'
+import { alfabetizacionesReducer } from '../reducers/Alfabetizaciones'
+import { alumnosReducer } from '../reducers/Alumnos'
+import { contratistasReducer } from '../reducers/Contratistas'
+import { cursosReducer } from '../reducers/Cursos'
+import { establecimientosReducer } from '../reducers/Establecimientos'
+import { institucionesReducer } from '../reducers/Instituciones'
+import { notificationsReducer } from '../reducers/Notifications'
+import { tareasReducer } from '../reducers/Tareas'
+import { userReducer } from '../reducers/User'
+import { usuariosReducer } from '../reducers/Usuarios'
 
 const rooReducer = combineReducers({
   alumnos: alumnosReducer,
@@ -20,10 +21,11 @@ const rooReducer = combineReducers({
   user: userReducer,
   notifications: notificationsReducer,
   establecimientos: establecimientosReducer,
+  instituciones: institucionesReducer,
   cursos: cursosReducer
-});
+})
 
 export const store = configureStore({
   reducer: rooReducer,
   middleware: [thunk],
-});
+})

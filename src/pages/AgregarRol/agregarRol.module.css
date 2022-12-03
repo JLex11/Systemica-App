@@ -74,17 +74,25 @@
 
 .ContainerInputsCurso {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
-  width: 200px;
+  width: 250px;
 }
 
-.CursoInput {
+.ContainerInputsCurso > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.CursoInput, .ContainerInputsCurso select {
   padding: 10px;
   background-color: transparent;
   border-radius: 10px;
   border: none;
   width: 100%;
+  font-size: 14pt;
 }
 
 .CursoInput:is(:hover, :focus) {

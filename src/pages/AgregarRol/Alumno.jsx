@@ -5,13 +5,22 @@ import Select from '../../components/Select'
 import { useField } from '../../hooks/useField'
 import styles from './agregarRol.module.css'
 
-const Alumno = ({ cursos, tipos_documento, setAddingCurso }) => {
+const Alumno = ({ instituciones, cursos, tipos_documento, setAddingInstitucion, setAddingCurso }) => {
+  const id_institucion_educativa = useField({ type: 'number', defaultValue: instituciones[0]?.id_institucion_educativa })
   const nombres = useField({ type: 'text' })
   const apellidos = useField({ type: 'text' })
   const edad = useField({ type: 'number' })
   const documento = useField({ type: 'number' })
   const tipo_documento = useField({ type: 'number', defaultValue: tipos_documento[0]?.id_tipo_documento })
   const telefono = useField({ type: 'number' })
+  
+  console.log(cursos)
+  cursos = cursos.filter((curso) => {
+    console.log(curso.id_institucion_educativa, id_institucion_educativa.value)
+    return curso.id_institucion_educativa == id_institucion_educativa.value
+  })
+  if (cursos.length == 0) cursos = [{ id_curso: 0, curso: 'No hay cursos', grupo: 'Registra uno' }]
+  
   const id_curso = useField({ type: 'number', defaultValue: cursos[0]?.id_curso })
 
   tipos_documento = tipos_documento.filter(({ tipo_abreviado }) => {
@@ -36,13 +45,34 @@ const Alumno = ({ cursos, tipos_documento, setAddingCurso }) => {
         />)}
       <InputLabel {...telefono} id='telefono' labelText='Telefono' />
       <div className={styles.SelectWithButton}>
-        {cursos && (<Select
-          name='id_curso'
-          field={id_curso}
-          options={cursos.map(({ id_curso, curso, grupo }) => (
-            { id: id_curso, label: `${curso} - ${grupo}` }
-          ))}
-        />)}
+        {instituciones && (
+          <Select
+            name='id_institucion_educativa'
+            field={id_institucion_educativa}
+            options={instituciones.map(({ id_institucion_educativa, nombre }) => (
+              { id: id_institucion_educativa, label: `${nombre}` }
+            ))}
+          />
+        )}
+        <button
+          className={styles.AddButton}
+          title='agrega un institucion'
+          onClick={()=>setAddingInstitucion(true)}
+          type='button'
+        >
+          <MdAdd />
+        </button>
+      </div>
+      <div className={styles.SelectWithButton}>
+        {cursos && (
+          <Select
+            name='id_curso'
+            field={id_curso}
+            options={cursos.map(({ id_curso, curso, grupo }) => (
+              { id: id_curso, label: `${curso} - ${grupo}` }
+            ))}
+          />
+        )}
         <button
           className={styles.AddButton}
           title='agrega un curso'
