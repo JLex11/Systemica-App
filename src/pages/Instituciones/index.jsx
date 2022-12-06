@@ -1,7 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import FilterInput from '../../components/FilterInput'
-import InstitucionesCarousel from '../../components/institucionesCarousel'
+import InstitucionesCarousel from '../../components/InstitucionesCarousel'
 import SectionHeader from '../../components/SectionHeader'
 import { useInstituciones } from '../../hooks/useInstituciones'
 import { filterItems } from '../../utils/filterItems'
